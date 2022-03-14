@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  sync_to_gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - run: export
+      - name: git-sync
+        uses: net-engine/github-repository-sync-action@v1
+        with:
+          ssh_private_key: ${{ secrets.GITEE }}
+          target_repo_url: git@gitee.com:linuxdeepin/${{ github.event.repository.name }}.git
