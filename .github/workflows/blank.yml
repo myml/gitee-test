@@ -6,7 +6,7 @@ jobs:
   sync_to_gitee:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt install git
+      - uses: actions/checkout@v1
       - name: git-sync
         uses: net-engine/github-repository-sync-action@v1
         with:
