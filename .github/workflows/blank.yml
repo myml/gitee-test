@@ -14,5 +14,6 @@ jobs:
           
       - name: push
         run: |
+          git clone --bare https://github.com/myml/${{ github.event.repository.name }}.git .git
           git remote set-url origin https://myml:${{ secrets.GITEE_TOKEN }}@gitee.com/linuxdeepin/${{ github.event.repository.name }}.git
           git push --all origin
